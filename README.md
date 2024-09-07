@@ -82,7 +82,8 @@ def analizarArchivo():
     file = open("mbox.txt")
     texto : str = file.read()
     texto = texto.lower()
-    
+    file.close()
+
     # Se llaman a las funciones para contar vocales y consonantes
     contarVocales(texto)
     print("\n")
