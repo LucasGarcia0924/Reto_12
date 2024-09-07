@@ -2,7 +2,7 @@
 ***
 Solución de los problemas asignados - Realizado por Lucas García Álvarez
 
-![logo](https://i.ibb.co/440n654/A-adir-un-t-tulo.png)
+[![Logo-equipo.webp](https://i.postimg.cc/Z5BYw1Tx/Logo-equipo.webp)](https://postimg.cc/9D2jMgwD)
 
 *Nota*: Para esta actividad se utilizó Python 3.12.5
 ## Consulta inicial
