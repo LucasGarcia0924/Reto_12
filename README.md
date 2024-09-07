@@ -71,18 +71,17 @@ print(Dialogo4.isupper()) # True
 ***
 Se pidió procesar un archivo dentro de un programa y que este entregase la cantidad de vocales y consonantes en el texto, además, entregase las 50 palabras más frecuentes en él.
 
-Para esto se crea la función en donde se ingresa el archivo y se convierte a una cadena de string, para así poder sacar las cuentas requeridas, además convierte a mayúsculas todos los elementos para no diferenciar entre mayúsculas y minúsculas, y se elimina todo lo que sea letras y espacios, para luego separar en una lista, a través de los espacios, las palabras y contabilizar las que se repiten más veces, organizandolas de mayor a menor y entregando las primeras 50.
+Para esto se crea la función en donde se ingresa el archivo y se convierte a una cadena de string, para así poder sacar las cuentas requeridas, además convierte a minúsculas todos los elementos para no diferenciar entre mayúsculas y minúsculas, y se elimina todo lo que sea letras y espacios, para luego separar en una lista, a través de los espacios, las palabras y contabilizar las que se repiten más veces, organizandolas de mayor a menor y entregando las primeras 50.
 ```python
-def analizarArchivo(rutaArchivo: str):
+def analizarArchivo():
     # Se declaran e inicializan las variables
     palabras: list = []
     top50Palabras: list = []
     frecuenciaPalabra : dict = {}
     # Se lee el contenido del archivo y se guarda en un string
-    with open(rutaArchivo, 'r', encoding='utf-8') as file:
-        texto : str = file.read()
-    # Se convierte todo el texto a mayúsculas para que no haya diferencia entre las mismas letras en minúsculas
-    texto = texto.upper()
+    file = open("mbox.txt")
+    texto : str = file.read()
+    texto = texto.lower()
     
     # Se llaman a las funciones para contar vocales y consonantes
     contarVocales(texto)
@@ -112,8 +111,8 @@ def analizarArchivo(rutaArchivo: str):
 Esta función llama a las otras dos, las cuales son encargadas de contabilizar la cantidad individual y total de vocales y consonantes, respectivamente.
 ```python
 def contarVocales(texto: str):
-    # Se incializan y declaran variables para comparar las vocales en mayúscula dentro del texto
-    vocales : str = "AEIOU"
+    # Se incializan y declaran variables para comparar las vocales en minúscula dentro del texto
+    vocales : str = "aeiou"
     acumulado: int = 0
     i : int = 0
     print("Las vocales aparecen en esta cantidad:\n")
@@ -125,8 +124,8 @@ def contarVocales(texto: str):
     print(f"\nEn total, dentro del texto aparecen: {acumulado} vocales")
 
 def contarConsonantes(texto: str):
-    # Se incializan y declaran variables para comparar las consonantes en mayúscula dentro del texto
-    consonantes : str = "BCDFGHJKLMNPQRSTVWXYZ"
+    # Se incializan y declaran variables para comparar las consonantes en minúscula dentro del texto
+    consonantes : str = "bcdfghjklmnpqrstvwxyz"
     acumulado: int = 0
     j : int = 0
     print("Las consonantes aparecen en esta cantidad:\n")
@@ -140,8 +139,6 @@ def contarConsonantes(texto: str):
 Por último se usa la función main y se ejecutan las demás.
 ```python
 if __name__ == "__main__": # Función main para iniciar el código
-    # Ruta del archivo de texto plano, ejemplo: C:/Users/Lucas/Documents/Python_Unal_2024-1/Reto_12/mbox.txt
-    rutaArchivo = str(input("Ingresa la ruta del archivo a procesar:"))
-    # Se llaman a las funciones
-    analizarArchivo(rutaArchivo)
+    # Se llaman a la función principal
+    analizarArchivo()
 ```
